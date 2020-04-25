@@ -1,0 +1,91 @@
+#:kivy 1.0.9
+
+# Notes
+# =================
+#
+# size_hint = HORIZONTAL, VERTICAL
+#         1               2
+#   =================================
+# 1 |   April   |                   |
+# 2 |     21    |                   |
+# 3 |   12:34p  |                   |
+# 4 |           |                   |
+# 5 | [ KNOCK ] |                   |
+#   =================================
+
+# <MeetingDisplayCore>:
+
+<MDCoreLayout>:
+    canvas.before:
+        Color:
+            rgb: 1, 0, 0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    orientation: 'horizontal'
+    padding: 10
+    spacing: 10
+    # size_hint: 0.4, 1
+    pos_hint: { 'top': 1 }
+
+    #spacing: dp(8)
+
+    # Left-most (Month & Day)
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: 0.3, 1
+
+        Label:
+            font_size: 70
+            center_x: (root.width / 2) - 50
+            top: root.top - 50
+            text: str(root.current_month)
+            # size_hint_x: 2
+            # size_hint: 1, 1
+
+        Label:
+            font_size: 120
+            center_x: root.width / 2
+            top: root.top - 150
+            text: str(root.current_day)
+            # size_hint: 1, 1
+            # size_hint_x: 2
+
+        Label:
+            font_size: 70
+            top: root.top - 250
+            text: "12:34"
+            # size_hint: 1, 1
+            # size_hint_x: 2
+
+        Button:
+            text: "Knock"
+            background_color: 1, 0, 0, 1
+            # size_hint_y: 0
+            # size_hint_x: 2
+            bold: True
+            font_size: 32
+            # size_hint: 1, 1
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgb: 1, 0, 0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        # size_hint: 1, 0.6
+
+        Button:
+            text: "BL1-2"
+            background_color: 0, 1, 0, 1
+            # size_hint_y: 0
+            # size_hint_x: 1
+
+        Button:
+            text: "BL1-2"
+            background_color: 0, 0, 1, 1
+            # size_hint_y: 0
+            # size_hint_x: 1

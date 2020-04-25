@@ -9,8 +9,11 @@ python = "^3.6"
 pygame = "^1.9.6"
 pillow = "^7.1.1"
 psutil = "^5.7.0"
+cython = "0.29.14"
+kivy = "^1.11.1"
 
 [tool.poetry.dev-dependencies]
+jedi = "^0.17.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
